@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Planner - Manage Your Studies Effectively</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo">📚 StudyPlan</div>
+        <ul class="nav-menu">
+          <li class="nav-item active" data-section="dashboard">📊 Dashboard</li>
+          <li class="nav-item" data-section="subjects">📖 Subjects</li>
+          <li class="nav-item" data-section="schedule">📅 Schedule</li>
+          <li class="nav-item" data-section="tasks">✓ Tasks</li>
+          <li class="nav-item" data-section="analytics">📈 Analytics</li>
+          <li class="nav-item" data-section="settings">⚙️ Settings</li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header class="header">
+          <h1 class="header-title" id="pageTitle">Dashboard</h1>
+          <div class="header-controls">
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              title="Toggle dark mode"
+            >
+              🌙
+            </button>
+          </div>
+        </header>
+
+        <div class="content-area">
+          <!-- Dashboard Section -->
+          <section id="dashboard" class="section active">
+            <div class="dashboard-grid">
+              <div class="stat-card">
+                <div class="stat-label">Total Subjects</div>
+                <div class="stat-number" id="totalSubjects">0</div>
+              </div>
+              <div class="stat-card success">
+                <div class="stat-label">Completed Tasks</div>
+                <div class="stat-number" id="completedTasks">0</div>
+              </div>
+              <div class="stat-card warning">
+                <div class="stat-label">Pending Tasks</div>
+                <div class="stat-number" id="pendingTasks">0</div>
+              </div>
+              <div class="stat-card danger">
+                <div class="stat-label">Upcoming Deadlines</div>
+                <div class="stat-number" id="upcomingDeadlines">0</div>
+              </div>
+            </div>
+
+            <div class="grid full">
+              <div class="card">
+                <h3>Upcoming Deadlines</h3>
+                <ul class="upcoming-list" id="upcomingList">
+                  <li class="upcoming-item">
+                    <div>
+                      <div style="font-weight: 600">No upcoming deadlines</div>
+                      <div
+                        style="font-size: 12px; color: var(--text-secondary)"
+                      >
+                        Add tasks to get started
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid full">
+              <div class="card">
+                <h3>Today's Schedule</h3>
+                <div class="schedule-container" id="todaySchedule">
+                  <div
+                    style="
+                      text-align: center;
+                      color: var(--text-secondary);
+                      padding: 40px 20px;
+                    "
+                  >
+                    No classes scheduled for today
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Subject Management Section -->
+          <section id="subjects" class="section">
+            <div class="card mb-20">
+              <div
+                class="flex justify-between align-center"
+                style="margin-bottom: 20px"
+              >
+                <h2>Subject Management</h2>
+                <button class="btn btn-primary" id="addSubjectBtn">
+                  + Add Subject
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Subject Name</th>
+                      <th>Priority</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="subjectsTable">
+                    <tr>
+                      <td colspan="5" style="text-align: center; padding: 30px">
+                        <div class="text-secondary">No subjects added yet</div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Schedule Planner Section -->
+          <section id="schedule" class="section">
+            <div class="card mb-20">
+              <div
+                class="flex justify-between align-center"
+                style="margin-bottom: 20px"
+              >
+                <h2>Schedule Planner</h2>
+                <button class="btn btn-primary" id="addScheduleBtn">
+                  + Add Session
+                </button>
+              </div>
+
+              <div class="tabs">
+                <div class="tab active" data-tab="daily">Daily View</div>
+                <div class="tab" data-tab="weekly">Weekly View</div>
+              </div>
+
+              <div id="daily" class="tab-content active">
+                <div class="form-group">
+                  <label>Select Date</label>
+                  <input type="date" id="scheduleDate" />
+                </div>
+                <div class="schedule-container" id="dailySchedule">
+                  <div
+                    style="
+                      text-align: center;
+                      color: var(--text-secondary);
+                      width: 100%;
+                      padding: 40px;
+                    "
+                  >
+                    No classes scheduled
+                  </div>
+                </div>
+              </div>
+
+              <div id="weekly" class="tab-content">
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Subject</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Duration</th>
+                        <th>Room</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="weeklyScheduleTable">
+                      <tr>
+                        <td
+                          colspan="6"
+                          style="text-align: center; padding: 30px"
+                        >
+                          <div class="text-secondary">No classes scheduled</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Task Manager Section -->
+          <section id="tasks" class="section">
+            <div class="card mb-20">
+              <div
+                class="flex justify-between align-center"
+                style="margin-bottom: 20px"
+              >
+                <h2>Task Manager</h2>
+                <button class="btn btn-primary" id="addTaskBtn">
+                  + Add Task
+                </button>
+              </div>
+
+              <div class="tabs">
+                <div class="tab active" data-tab="assignments">Assignments</div>
+                <div class="tab" data-tab="exams">Exams</div>
+                <div class="tab" data-tab="allTasks">All Tasks</div>
+              </div>
+
+              <div id="assignments" class="tab-content active">
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>Subject</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="assignmentsTable">
+                      <tr>
+                        <td
+                          colspan="5"
+                          style="text-align: center; padding: 30px"
+                        >
+                          <div class="text-secondary">No assignments</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div id="exams" class="tab-content">
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="examsTable">
+                      <tr>
+                        <td
+                          colspan="6"
+                          style="text-align: center; padding: 30px"
+                        >
+                          <div class="text-secondary">No exams scheduled</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div id="allTasks" class="tab-content">
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Subject</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="allTasksTable">
+                      <tr>
+                        <td
+                          colspan="6"
+                          style="text-align: center; padding: 30px"
+                        >
+                          <div class="text-secondary">No tasks</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Progress Analytics Section -->
+          <section id="analytics" class="section">
+            <div class="grid full">
+              <div class="card">
+                <h3>Study Progress</h3>
+                <div class="chart-container" id="progressChart"></div>
+              </div>
+            </div>
+
+            <div class="grid full">
+              <div class="card">
+                <h3>Subject Performance</h3>
+                <div class="chart-container" id="performanceChart"></div>
+              </div>
+            </div>
+
+            <div class="grid full">
+              <div class="card">
+                <h3>Weekly Activity</h3>
+                <div class="chart-container" id="activityChart"></div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="card">
+                <h3>Completed Subjects</h3>
+                <div id="completedSubjectsList" style="margin-top: 20px"></div>
+              </div>
+              <div class="card">
+                <h3>Time Allocation</h3>
+                <div id="timeAllocationList" style="margin-top: 20px"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Settings Section -->
+          <section id="settings" class="section">
+            <div class="grid full">
+              <div class="card">
+                <h3>Preferences</h3>
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="darkModeCheckbox" />
+                    Enable Dark Mode
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="notificationsCheckbox" checked />
+                    Enable Notifications
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label for="weekStartDay">Week Starts on</label>
+                  <select id="weekStartDay">
+                    <option value="0">Sunday</option>
+                    <option value="1">Monday</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid full">
+              <div class="card">
+                <h3>Data Management</h3>
+                <p style="margin-bottom: 20px; color: var(--text-secondary)">
+                  Export your data or reset all settings
+                </p>
+                <div class="btn-group">
+                  <button class="btn btn-secondary" id="exportBtn">
+                    📥 Export Data
+                  </button>
+                  <button class="btn btn-secondary" id="importBtn">
+                    📤 Import Data
+                  </button>
+                  <button class="btn btn-danger" id="resetBtn">
+                    🗑️ Reset All Data
+                  </button>
+                </div>
+                <input
+                  type="file"
+                  id="importFile"
+                  accept=".json"
+                  style="display: none"
+                />
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+  </body>
+</html>
