@@ -424,6 +424,63 @@
         </form>
       </div>
     </div>
+
+    <!-- Schedule Modal -->
+    <div class="modal" id="scheduleModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="scheduleModalTitle">Add Session</span>
+          <button class="modal-close" data-modal="scheduleModal">
+            &times;
+          </button>
+        </div>
+        <form id="scheduleForm">
+          <div class="form-group">
+            <label for="scheduleSubject">Subject *</label>
+            <select id="scheduleSubject" required>
+              <option value="">Select a subject</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="scheduleDay">Day *</label>
+            <select id="scheduleDay" required>
+              <option value="">Select day</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="scheduleTime">Start Time *</label>
+            <input type="time" id="scheduleTime" required />
+          </div>
+          <div class="form-group">
+            <label for="scheduleDuration">Duration (minutes) *</label>
+            <input
+              type="number"
+              id="scheduleDuration"
+              min="15"
+              value="60"
+              required
+            />
+          </div>
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary">Save Session</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-modal="scheduleModal"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
