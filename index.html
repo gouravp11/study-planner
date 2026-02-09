@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Study Planner - Manage Your Studies Effectively</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
@@ -386,7 +386,44 @@
       </div>
     </div>
 
-    
+    <!-- Modals -->
+    <!-- Subject Modal -->
+    <div class="modal" id="subjectModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="subjectModalTitle">Add Subject</span>
+          <button class="modal-close" data-modal="subjectModal">&times;</button>
+        </div>
+        <form id="subjectForm">
+          <div class="form-group">
+            <label for="subjectName">Subject Name *</label>
+            <input type="text" id="subjectName" required />
+          </div>
+          <div class="form-group">
+            <label for="subjectPriority">Priority</label>
+            <select id="subjectPriority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="subjectDescription">Description</label>
+            <textarea id="subjectDescription"></textarea>
+          </div>
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary">Save Subject</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-modal="subjectModal"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
