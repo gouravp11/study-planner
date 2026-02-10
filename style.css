@@ -163,13 +163,12 @@ body {
 }
 
 .header {
-  background-color: var(--card-bg);
-  border-bottom: 1px solid var(--border-color);
-  padding: 20px 30px;
+  padding: 15px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--shadow);
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .header-title {
@@ -290,7 +289,7 @@ body {
   margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .upcoming-item.urgent {
@@ -311,6 +310,8 @@ body {
 }
 
 .deadline-badge.urgent {
+  padding: 0 8px;
+  width: fit-content;
   background-color: var(--danger-color);
 }
 
@@ -716,13 +717,13 @@ tr:hover {
     padding: 15px 8px;
   }
 
-  .sidebar-header {
+  /* .sidebar-header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
     gap: 10px;
-  }
+  } */
 
   .sidebar-toggle {
     display: none;
@@ -785,15 +786,6 @@ tr:hover {
   .content-area {
     padding: 15px;
     overflow-y: auto;
-  }
-
-  .header {
-    padding: 12px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
   }
 
   .header-title {
@@ -904,7 +896,6 @@ tr:hover {
     text-align: left;
     padding: 8px;
     position: relative;
-    padding-left: 40%;
     font-size: 12px;
   }
 
@@ -1144,20 +1135,15 @@ tr:hover {
     margin-bottom: 1px;
   }
 
-  .header {
-    padding: 10px 12px;
-    flex-wrap: wrap;
-  }
-
   .header-title {
     font-size: 16px;
     flex: 1;
-    min-width: 100%;
+    width: fit-content;
+    /* min-width: 100%; */
     margin-bottom: 8px;
   }
 
   .header-controls {
-    width: 100%;
     gap: 6px;
     justify-content: flex-start;
   }
@@ -1277,7 +1263,7 @@ tr:hover {
   }
 
   .btn-small {
-    padding: 7px 10px;
+    /* padding: 0 0px; */
     font-size: 11px;
     min-height: 36px;
   }
@@ -1323,7 +1309,6 @@ tr:hover {
     text-align: left;
     padding: 6px;
     position: relative;
-    padding-left: 35%;
     font-size: 11px;
   }
 
@@ -1429,7 +1414,7 @@ tr:hover {
   .flex.justify-between > *:last-child {
     margin-left: 0;
     margin-top: 8px;
-    width: 100%;
+    width: fit-content;
   }
 
   .flex.align-center {
@@ -1497,16 +1482,10 @@ tr:hover {
 }
 /* Touch-friendly sizes */
 @media (max-width: 768px) {
-  button,
   input[type="button"],
   input[type="submit"],
   a[role="button"] {
-    min-height: 44px;
     min-width: 44px;
-  }
-
-  .btn {
-    min-height: 44px;
   }
 }
 
