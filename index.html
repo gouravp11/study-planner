@@ -10,14 +10,19 @@
     <div class="container">
       <!-- Sidebar Navigation -->
       <aside class="sidebar">
-        <div class="logo">📚 StudyPlan</div>
+        <div class="sidebar-header">
+          <div class="logo">📚 StudyPlan</div>
+          <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">
+            ☰
+          </button>
+        </div>
         <ul class="nav-menu">
-          <li class="nav-item active" data-section="dashboard">📊 Dashboard</li>
-          <li class="nav-item" data-section="subjects">📖 Subjects</li>
-          <li class="nav-item" data-section="schedule">📅 Schedule</li>
-          <li class="nav-item" data-section="tasks">✓ Tasks</li>
-          <li class="nav-item" data-section="analytics">📈 Analytics</li>
-          <li class="nav-item" data-section="settings">⚙️ Settings</li>
+          <li class="nav-item active" data-section="dashboard" data-icon="📊">📊 Dashboard</li>
+          <li class="nav-item" data-section="subjects" data-icon="📖">📖 Subjects</li>
+          <li class="nav-item" data-section="schedule" data-icon="📅">📅 Schedule</li>
+          <li class="nav-item" data-section="tasks" data-icon="✓">✓ Tasks</li>
+          <li class="nav-item" data-section="analytics" data-icon="📈">📈 Analytics</li>
+          <li class="nav-item" data-section="settings" data-icon="⚙️">⚙️ Settings</li>
         </ul>
       </aside>
 

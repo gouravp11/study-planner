@@ -867,7 +867,37 @@ function resetAllData() {
 }
 
 // ==================== EVENT LISTENERS ====================
+// Sidebar auto-collapse based on window width
+function updateSidebarCollapse() {
+  const sidebar = document.querySelector(".sidebar");
+  const isAutoCollapsed = window.innerWidth <= 1100;
+  const isManuallyCollapsed = localStorage.getItem("sidebarCollapsed") === "true";
+
+  if (isAutoCollapsed) {
+    sidebar.classList.add("collapsed");
+    sidebar.classList.add("auto-collapsed");
+  } else if (!isManuallyCollapsed) {
+    sidebar.classList.remove("collapsed");
+  }
+  sidebar.classList.toggle("auto-collapsed", isAutoCollapsed);
+}
+
+window.addEventListener("resize", updateSidebarCollapse);
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Sidebar toggle
+  document.getElementById("sidebarToggle").addEventListener("click", () => {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("collapsed");
+    localStorage.setItem("sidebarCollapsed", sidebar.classList.contains("collapsed"));
+  });
+
+  // Restore sidebar state on page load and apply auto-collapse
+  updateSidebarCollapse();
+  if (localStorage.getItem("sidebarCollapsed") === "true" && window.innerWidth > 1100) {
+    document.querySelector(".sidebar").classList.add("collapsed");
+  }
+
   // Theme
   applyTheme();
   document.getElementById("themeToggle").addEventListener("click", () => {
