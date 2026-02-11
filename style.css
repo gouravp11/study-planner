@@ -1368,6 +1368,7 @@ tr:hover {
   }
 
   .deadline-badge {
+    max-height: 10px;
     font-size: 9px;
     padding: 2px 6px;
   }
