@@ -1,5 +1,4 @@
 // ==================== DATA MANAGEMENT ====================
-// ==================== DATA MANAGEMENT ====================
 function createStudyPlanner() {
   let subjects = [];
   let schedule = [];
@@ -236,7 +235,7 @@ function updateTodaySchedule() {
   const container = document.getElementById("todaySchedule");
   if (todayClasses.length === 0) {
     container.innerHTML =
-      '<div style="text-align: center; color: var(--text-secondary); padding: 40px 20px; width: 100%;">No classes scheduled for today</div>';
+      '<div style="text-align: center; color: var(--text-secondary); padding: 40px 20px; width: 100%;">No sessions scheduled for today</div>';
   } else {
     container.innerHTML = todayClasses
       .map((schedule) => {
@@ -432,7 +431,7 @@ function updateDailyScheduleView() {
   const container = document.getElementById("dailySchedule");
   if (dayClasses.length === 0) {
     container.innerHTML =
-      '<div style="text-align: center; color: var(--text-secondary); padding: 40px 20px; width: 100%;">No classes scheduled</div>';
+      '<div style="text-align: center; color: var(--text-secondary); padding: 40px 20px; width: 100%;">No sessions scheduled</div>';
   } else {
     container.innerHTML = dayClasses
       .map((schedule) => {
